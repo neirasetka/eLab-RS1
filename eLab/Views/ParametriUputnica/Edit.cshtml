@@ -1,0 +1,39 @@
+﻿@model eLab.Models.ParametriUputnica
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Uredi</h1>
+
+<h4>ParametriUputnica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ParametriId" class="control-label"></label>
+                <select asp-for="ParametriId" class="form-control" asp-items="ViewBag.ParametriId"></select>
+                <span asp-validation-for="ParametriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UputnicaId" class="control-label"></label>
+                <select asp-for="UputnicaId" class="form-control" asp-items="ViewBag.UputnicaId"></select>
+                <span asp-validation-for="UputnicaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Nazad</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

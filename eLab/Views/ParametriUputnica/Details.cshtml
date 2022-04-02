@@ -1,0 +1,30 @@
+﻿@model eLab.Models.ParametriUputnica
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalji</h1>
+
+<div>
+    <h4>ParametriUputnica</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Parametri)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Parametri.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Uputnica)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Uputnica.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Uredi</a> |
+    <a asp-action="Index">Nazad</a>
+</div>

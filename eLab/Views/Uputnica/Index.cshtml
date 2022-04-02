@@ -1,0 +1,105 @@
+﻿@model IEnumerable<eLab.Models.Uputnica>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <style scoped>
+        .content a {
+            color: mediumaquamarine;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .content a:hover {
+            color: mediumseagreen;
+            text-decoration: none;
+        }
+        .content thead {
+            background-color: mediumaquamarine;
+            color: white;
+        }
+        .button-new {
+            padding: 10px;
+            color: white !important;
+            background-color: mediumaquamarine;
+            border: 1px solid whitesmoke;
+            float: right;
+            border-radius: 5px;
+        }
+        .button-new:hover {
+            background-color: #2dca86;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 style="float: left; color: #2dca86; ">Uputnice</h1>
+
+        @if (User != null && User.Identity?.Name == "lab@elab.ba")
+        {
+            <p style="float:right;">
+                <a asp-action="Create" class="button-new">+ Nova Uputnica</a>
+            </p>
+        }
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Datum
+                    </th>
+                    <th>
+                        Naziv
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TipUzorka)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Uzorkovanje)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pacijent)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateCreated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipUzorka.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Uzorkovanje.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pacijent.Name)
+                        </td>
+                        <td>
+                            @if (User != null && User.Identity?.Name == "lab@elab.ba")
+                            {<a asp-action="Edit" asp-route-id="@item.Id">🖉</a>}
+                            <a asp-action="Details" asp-route-id="@item.Id">ⓘ</a>
+                            @if (User != null && User.Identity?.Name == "lab@elab.ba")
+                            {<a asp-action="Delete" asp-route-id="@item.Id">×</a>}
+                            <a asp-action="Report" asp-route-id="@item.Id">⎙</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br /><br /><br />
+        <h4>Statistika</h4>
+        <p><b>Ukupno nalaza: </b> @ViewBag.TotalNalaz</p>
+        <p><b>Ukupno uputnica: </b> @ViewBag.TotalUputnica</p>
+        <hr />
+        <b style="color: mediumaquamarine">Riješeno = @ViewBag.PercentTotal</b>
+    </div>
+</body>

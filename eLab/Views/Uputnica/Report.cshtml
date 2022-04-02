@@ -1,0 +1,81 @@
+﻿@model eLab.Models.Uputnica
+@{
+    ViewData["Title"] = "Report";
+    Layout = null;
+}
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Libre Barcode 128' rel='stylesheet'>
+</head>
+<body>
+    <div class="row">
+        <h1 style="font-family: 'Libre Barcode 128'; font-size: 32px;" class="text-right mt-3">@(Model.Id)</h1>
+        <h1 class="report-heading text-center my-5">Uputnica</h1>
+        <br /><br />
+        <div class="col-xs-9 mt-5">
+            <div class="form-group row">
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Datum:</label>
+                    <label class="col-xs-9 report-field">@(Model.DateCreated.ToString("dd-MMM-yyyy"))</label>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-4 report-label">Uputnica id</label>
+                    <label class="col-xs-8 report-field">@(Model.Id)</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-5 report-label">Pacijent</label>
+                    <label class="col-xs-7 report-field">@(Model.Pacijent?.Name)</label>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Detalji</label>
+                    <label class="col-xs-9 report-field">@(Model.Pacijent?.Description)</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Uputnicu izdao</label>
+                    <label class="col-xs-9 report-field">@(Model.Korisnik?.Ime) @(Model.Korisnik?.Prezime)</label>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">UID </label>
+                    <label class="col-xs-9 report-field">@(Model.Korisnik?.Email)</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Tip uzorka</label>
+                    <label class="col-xs-9 report-field">@(Model.TipUzorka?.Description)</label>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Detalji uzorka</label>
+                    <label class="col-xs-9 report-field">@(Model.TipUzorka?.Name)</label>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row mt-5">
+                <div class="col-xs-12 text-center">
+                    <label>NAPOMENA: Ovaj dokument je generisan elektronski te je važeći bez pečata i potpisa!</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿@model eLab.Models.Nalaz
+@{
+    ViewData["Title"] = "Report";
+    Layout = null;
+}
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Libre Barcode 128' rel='stylesheet'>
+</head>
+<body>
+    <div class="row">
+        <h1 style="font-family: 'Libre Barcode 128'; font-size: 32px;" class="text-right mt-3">@(Model.Id)</h1>
+        <h1 class="report-heading text-center my-5">Nalaz</h1>
+        <br /><br />
+        <div class="col-xs-9 mt-5">
+            <div class="form-group row">
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Datum:</label>
+                    <label class="col-xs-9 report-field">@(Model.DateCreated.ToString("dd-MMM-yyyy"))</label>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-4 report-label">Nalaz id</label>
+                    <label class="col-xs-8 report-field">@(Model.Id)</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-5 report-label">Pacijent</label>
+                    <label class="col-xs-7 report-field">@(Model.Pacijent?.Name)</label>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Detalji</label>
+                    <label class="col-xs-9 report-field">@(Model.Pacijent?.Description)</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Vrsta analize</label>
+                    <label class="col-xs-9 report-field">@(Model.Analiza?.Name))</label>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <label class="col-xs-3 report-label">Parametri </label>
+                    <label class="col-xs-9 report-field">@(Model.Analiza?.Parametri)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

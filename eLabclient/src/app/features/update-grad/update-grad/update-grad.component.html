@@ -1,0 +1,31 @@
+<div class="containter" style="margin-top: 100px">
+
+    <div class="row justify-content-center" >
+
+      <div class="col-4" >
+
+        <div class="card" style="width: 40rem; border: 1px solid green;" >
+
+          <h1 style="text-align: center;padding-top: 10%;">Update category form</h1>
+
+          <form class="text-center border border-light p-5" [formGroup]="updateGradForm" (submit)="updateGrad()">
+
+            <h6 style="padding-right:70%;">Grad name</h6>
+            <input placeholder="Grad name" type="text" formControlName="name" class="form-control mb-4">
+
+            <h6 style="padding-right:70%;">Grad PTT</h6>
+            <input placeholder="Grad PTT" type="text" formControlName="PTT" class="form-control mb-4">
+
+            <input placeholder="Material name" type="text" formControlName="id" hidden class="form-control mb-4">
+
+            <button class="btn btn-success" type="submit" >Uredi materijal</button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>

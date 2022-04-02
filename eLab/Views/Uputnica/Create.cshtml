@@ -1,0 +1,65 @@
+﻿@model eLab.Models.Uputnica
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style scoped>
+    .btn-primary {
+        background-color: mediumaquamarine !important;
+        border: 1px solid whitesmoke !important;
+    }
+</style>
+<h1>Novi zapis</h1>
+
+<h4>Uputnica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="DateCreated" class="control-label"></label>
+                <input asp-for="DateCreated" class="form-control" />
+                <span asp-validation-for="DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateUpdated" class="control-label"></label>
+                <input asp-for="DateUpdated" class="form-control" />
+                <span asp-validation-for="DateUpdated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timestamp" class="control-label"></label>
+                <input asp-for="Timestamp" class="form-control" />
+                <span asp-validation-for="Timestamp" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipUzorkaId" class="control-label">Tip Uzorka</label>
+                <select asp-for="TipUzorkaId" class ="form-control" asp-items="ViewBag.TipUzorkaId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UzorkovanjeId" class="control-label">Uzorkovanje</label>
+                <select asp-for="UzorkovanjeId" class ="form-control" asp-items="ViewBag.UzorkovanjeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PacijentId" class="control-label">Pacijent</label>
+                <select asp-for="PacijentId" class ="form-control" asp-items="ViewBag.PacijentId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Nazad</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

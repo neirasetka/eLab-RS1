@@ -1,0 +1,35 @@
+<div class="containter" style="margin-top: 100px">
+
+    <div class="row justify-content-center" >
+  
+      <div class="col-4" >
+  
+        <div class="card" style="width: 30rem; border: 1px solid green;" >
+   
+          <h1 style="text-align: center;padding-top: 10%;">Add material form</h1>
+  
+          <form class="text-center border border-light p-5" [formGroup]="addMaterialForm" (submit)="addMaterial()">
+  
+            <input placeholder="Material name" type="text" formControlName="name" class="form-control mb-4">
+  
+             <p style="color: red;" *ngIf="addMaterialForm.get('name').touched && addMaterialForm.get('name').hasError('required')">Required field</p>
+
+             <input placeholder="Material description" type="text" formControlName="description" class="form-control mb-4">
+  
+             <p style="color: red;" *ngIf="addMaterialForm.get('description').touched && addMaterialForm.get('description').hasError('required')">Required field</p>
+
+             <input placeholder="Material quantity" type="text" formControlName="quantity" class="form-control mb-4">
+  
+             <p style="color: red;" *ngIf="addMaterialForm.get('quantity').touched && addMaterialForm.get('quantity').hasError('required')">Required field</p>
+            
+             <button class="btn btn-success" type="submit" [disabled]="!addMaterialForm.valid">Add material</button>
+          
+          </form>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+    
+  </div>
